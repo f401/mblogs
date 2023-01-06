@@ -1,3 +1,4 @@
 # Linux C
 
-[open](/coding/linuxc/functions/fcntl_open.md)
+|头文件|函数名|
+|`fcntl.h`|[open](/coding/linuxc/functions/fcntl_open.md)|
