@@ -2,4 +2,4 @@
 
 |头文件|函数名|
 |---------|----------------------------------------------|
-|`fcntl.h`|[open](/coding/linuxc/functions/fcntl_open.md)|
+|`fcntl.h`|[open](functions/fcntl_open.md)|
