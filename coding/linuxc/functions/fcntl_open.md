@@ -26,3 +26,30 @@ int open (const char *file, int flags, ...);
 
 第三个参数只在创建文件时才会有效(`flag`包含`O_CREAT`), 为umask值
 
+## 例子
+
+```c
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+#include <errno.h>
+
+int main(int argc, char *argv[])
+{
+	const static char* msg = "Open Write Close Test";
+
+	int fd = open("test.txt", O_WRONLY | O_CREAT, 0600);
+
+	if (fd == -1) {
+		fprintf(stderr, "打开文件失败, errno: %d\n", errno);
+		return -1;
+	}
+
+	write(fd, msg, strlen(msg));
+	close(fd);
+
+	return 0;
+}
+
+```
