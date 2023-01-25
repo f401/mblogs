@@ -46,5 +46,3 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 ```
-## 类似函数
-[waitpid](sys_wait-wait.md)
