@@ -20,8 +20,31 @@ __NOTE__: 子进程结束信号: `SIGCHLD`
 
 ## 返回值：   
 
-成功，返回子进程的进程号;
-失败，返回-1
+成功，返回子进程的`pid`;
+失败，返回`-1`
 
+## 例子
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main(int argc, char *argv[]) {
+  int pid = fork();
+  if (pid < 0) {
+    fprintf(stderr, "Fork Error %d\n", pid);
+    return pid;
+  } else if (pid == 0) { // 子进程
+    return EXIT_SUCCESS;
+  } else { // 父进程
+    int status;
+    wait(&status);
+    printf(status == EXIT_SUCCESS ? "subprocess exit successfully"
+                                                : "subprocess exit error");
+  }
+  return 0;
+}
+```
 ## 类似函数
 [waitpid](sys_wait-wait.md)
